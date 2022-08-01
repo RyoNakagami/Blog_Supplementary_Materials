@@ -33,6 +33,8 @@
 % git mv options <oldFilename> <newFilename>
 ```
 
+- 追加で`git add`を実行する必要はありません
+
 > 動作説明
 
 `mv`コマンドを用いて,`git mv`と同じ動作をするコードを以下紹介します. 
@@ -51,10 +53,25 @@
 - `-k`: エラーを引き起こす可能性のある操作をスキップします
 - `-v`: ファイル名を変更したり移動したりしたときに, そのファイル名を報告
 
-#### (1) すでにpush済みのフォルダ名称の変更
+#### (2) すでにpush済みのフォルダ名称の変更
 
+> Syntax
 
+```zsh
+% git mv options <oldFoldername> <newFoldername>
+```
 
+> 動作説明
+
+```zsh 
+% mv oldfolder newfolder
+% git add newfolder 
+% git commit -m 'start rename'     
+% git push origin main
+% git rm -r oldfolder
+% git commit -m 'rename complete' 
+% git push origin main
+```
 
 
 ## 参考
